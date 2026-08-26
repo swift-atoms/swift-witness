@@ -1,4 +1,4 @@
-# Witness Primitives
+# Witness
 
 ![Development Status](https://img.shields.io/badge/status-active--development-blue.svg)
 
@@ -13,7 +13,7 @@ A protocol witness is a struct whose stored properties are closures, each repres
 This package supplies the shared vocabulary: the `Witness.Protocol` marker that tags such a struct, and the `Witness.Composition` strategy that describes how two implementations combine.
 
 ```swift
-import Witness_Primitives
+import Witness
 
 // A capability expressed as a struct of closures, tagged with the marker protocol.
 struct FileSystem: Witness.`Protocol` {
@@ -43,7 +43,7 @@ let strategy: Witness.Composition = .fallback   // .sequential | .racing | .fall
 
 ```swift
 dependencies: [
-    .package(url: "https://github.com/swift-primitives/swift-witness-primitives.git", branch: "main")
+    .package(url: "https://github.com/swift-molecules/swift-witness.git", branch: "main")
 ]
 ```
 
@@ -51,7 +51,7 @@ dependencies: [
 .target(
     name: "App",
     dependencies: [
-        .product(name: "Witness Primitives", package: "swift-witness-primitives"),
+        .product(name: "Witness", package: "swift-witness"),
     ]
 )
 ```
@@ -66,8 +66,8 @@ Two library products, one dependency.
 
 | Product | Target | Purpose |
 |---------|--------|---------|
-| `Witness Primitives` | `Sources/Witness Primitives/` | The `Witness` namespace, the `Witness.Protocol` marker for struct-of-closures capabilities, and the `Witness.Composition` strategy (`.sequential` / `.racing` / `.fallback`). |
-| `Witness Primitives Test Support` | `Tests/Support/` | Re-exports the main target for test consumers. |
+| `Witness` | `Sources/Witness/` | The `Witness` namespace, the `Witness.Protocol` marker for struct-of-closures capabilities, and the `Witness.Composition` strategy (`.sequential` / `.racing` / `.fallback`). |
+| `Witness Test Support` | `Tests/Support/` | Re-exports the main target for test consumers. |
 
 Foundation-free.
 

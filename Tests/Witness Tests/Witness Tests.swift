@@ -1,6 +1,6 @@
 import Testing
 
-@testable import Witness_Primitives
+@testable import Witness
 
 extension Witness {
     @Suite

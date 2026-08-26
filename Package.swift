@@ -3,7 +3,7 @@
 import PackageDescription
 
 let package = Package(
-    name: "swift-witness-primitives",
+    name: "swift-witness",
     platforms: [
         .macOS(.v27),
         .iOS(.v27),
@@ -13,23 +13,23 @@ let package = Package(
     ],
     products: [
         .library(
-            name: "Witness Primitives",
-            targets: ["Witness Primitives"]
+            name: "Witness",
+            targets: ["Witness"]
         ),
         .library(
-            name: "Witness Primitives Test Support",
-            targets: ["Witness Primitives Test Support"]
+            name: "Witness Test Support",
+            targets: ["Witness Test Support"]
         ),
     ],
     dependencies: [
         .package(
-            url: "https://github.com/swift-primitives/swift-standard-library-extensions.git",
+            url: "https://github.com/swift-molecules/swift-standard-library-extensions.git",
             branch: "main"
         )
     ],
     targets: [
         .target(
-            name: "Witness Primitives",
+            name: "Witness",
             dependencies: [
                 .product(
                     name: "Standard Library Extensions",
@@ -38,9 +38,9 @@ let package = Package(
             ]
         ),
         .target(
-            name: "Witness Primitives Test Support",
+            name: "Witness Test Support",
             dependencies: [
-                "Witness Primitives",
+                "Witness",
                 .product(
                     name: "Standard Library Extensions Test Support",
                     package: "swift-standard-library-extensions"
@@ -49,10 +49,10 @@ let package = Package(
             path: "Tests/Support"
         ),
         .testTarget(
-            name: "Witness Primitives Tests",
+            name: "Witness Tests",
             dependencies: [
-                "Witness Primitives",
-                "Witness Primitives Test Support",
+                "Witness",
+                "Witness Test Support",
             ]
         ),
     ],
