@@ -17,34 +17,43 @@ let package = Package(
             targets: ["Witness"]
         ),
         .library(
-            name: "Witness Standard Library Integration",
-            targets: ["Witness Standard Library Integration"]
-        ),
-        .library(
-            name: "Witness Apple Foundation Integration",
-            targets: ["Witness Apple Foundation Integration"]
+            name: "Witness Test Support",
+            targets: ["Witness Test Support"]
         ),
     ],
-    dependencies: [],
+    dependencies: [
+        .package(
+            url: "https://github.com/swift-molecules/swift-standard-library-extensions.git",
+            branch: "main"
+        )
+    ],
     targets: [
         .target(
             name: "Witness",
-            dependencies: []
+            dependencies: [
+                .product(
+                    name: "Standard Library Extensions",
+                    package: "swift-standard-library-extensions"
+                )
+            ]
         ),
         .target(
-            name: "Witness Standard Library Integration",
-            dependencies: ["Witness"]
-        ),
-        .target(
-            name: "Witness Apple Foundation Integration",
+            name: "Witness Test Support",
             dependencies: [
                 "Witness",
-                "Witness Standard Library Integration",
-            ]
+                .product(
+                    name: "Standard Library Extensions Test Support",
+                    package: "swift-standard-library-extensions"
+                ),
+            ],
+            path: "Tests/Support"
         ),
         .testTarget(
             name: "Witness Tests",
-            dependencies: ["Witness"]
+            dependencies: [
+                "Witness",
+                "Witness Test Support",
+            ]
         ),
     ],
     swiftLanguageModes: [.v6]
