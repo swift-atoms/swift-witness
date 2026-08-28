@@ -43,7 +43,7 @@ let strategy: Witness.Composition = .fallback   // .sequential | .racing | .fall
 
 ```swift
 dependencies: [
-    .package(url: "https://github.com/swift-molecules/swift-witness.git", branch: "main")
+    .package(url: "https://github.com/swift-atoms/swift-witness.git", branch: "main")
 ]
 ```
 
@@ -62,12 +62,11 @@ Requires Swift 6.3.1 and macOS 26 / iOS 26 / tvOS 26 / watchOS 26 / visionOS 26 
 
 ## Architecture
 
-Two library products, one dependency.
+One library product, one dependency.
 
 | Product | Target | Purpose |
 |---------|--------|---------|
 | `Witness` | `Sources/Witness/` | The `Witness` namespace, the `Witness.Protocol` marker for struct-of-closures capabilities, and the `Witness.Composition` strategy (`.sequential` / `.racing` / `.fallback`). |
-| `Witness Test Support` | `Tests/Support/` | Re-exports the main target for test consumers. |
 
 Foundation-free.
 
