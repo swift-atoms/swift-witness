@@ -3,7 +3,7 @@
 import PackageDescription
 
 let package = Package(
-    name: "swift-witness-primitives",
+    name: "swift-witness",
     platforms: [
         .macOS(.v27),
         .iOS(.v27),
@@ -13,12 +13,8 @@ let package = Package(
     ],
     products: [
         .library(
-            name: "Witness Primitives",
-            targets: ["Witness Primitives"]
-        ),
-        .library(
-            name: "Witness Primitives Test Support",
-            targets: ["Witness Primitives Test Support"]
+            name: "Witness",
+            targets: ["Witness"]
         ),
     ],
     dependencies: [
@@ -29,7 +25,7 @@ let package = Package(
     ],
     targets: [
         .target(
-            name: "Witness Primitives",
+            name: "Witness",
             dependencies: [
                 .product(
                     name: "Standard Library Extensions",
@@ -37,22 +33,10 @@ let package = Package(
                 )
             ]
         ),
-        .target(
-            name: "Witness Primitives Test Support",
-            dependencies: [
-                "Witness Primitives",
-                .product(
-                    name: "Standard Library Extensions Test Support",
-                    package: "swift-standard-library-extensions"
-                ),
-            ],
-            path: "Tests/Support"
-        ),
         .testTarget(
-            name: "Witness Primitives Tests",
+            name: "Witness Tests",
             dependencies: [
-                "Witness Primitives",
-                "Witness Primitives Test Support",
+                .target(name: "Witness"),
             ]
         ),
     ],
