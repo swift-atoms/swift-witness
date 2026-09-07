@@ -13,8 +13,8 @@ let package = Package(
     ],
     products: [
         .library(name: "Witness", targets: ["Witness"]),
-        .library(name: "Witness Standard Library Integration", targets: ["Witness Standard Library Integration"]),
-        .library(name: "Witness Foundation Library Integration", targets: ["Witness Foundation Library Integration"]),
+
+        .library(name: "Witness Foundation Integration", targets: ["Witness Foundation Integration"]),
         .library(name: "Witness Test Support", targets: ["Witness Test Support"]),
     ],
     dependencies: [],
@@ -25,20 +25,13 @@ let package = Package(
             ],
             path: "Sources/Witness"
         ),
+        
         .target(
-            name: "Witness Standard Library Integration",
+            name: "Witness Foundation Integration",
             dependencies: [
                 .target(name: "Witness"),
             ],
-            path: "Sources/Witness Standard Library Integration"
-        ),
-        .target(
-            name: "Witness Foundation Library Integration",
-            dependencies: [
-                .target(name: "Witness"),
-                .target(name: "Witness Standard Library Integration"),
-            ],
-            path: "Sources/Witness Foundation Library Integration"
+            path: "Sources/Witness Foundation Integration"
         ),
         .target(
             name: "Witness Test Support",
@@ -52,8 +45,7 @@ let package = Package(
             dependencies: [
                 .target(name: "Witness"),
                 .target(name: "Witness Test Support"),
-                .target(name: "Witness Standard Library Integration"),
-                .target(name: "Witness Foundation Library Integration"),
+                .target(name: "Witness Foundation Integration"),
             ],
             path: "Tests/Witness Tests"
         ),
