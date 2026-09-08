@@ -4,13 +4,13 @@ import Testing
 
 extension Witness {
     @Suite
-    struct Test {
-        @Suite struct Unit {}
-        @Suite struct `Edge Case` {}
+    struct `Witness markers accept conformances through both protocol spellings` {
+        @Suite struct `Witness marker conformances admit stored operations and require no members` {}
+        @Suite struct `The macro facing Witness alias accepts marker conformances` {}
     }
 }
 
-extension Witness.Test.Unit {
+extension Witness.`Witness markers accept conformances through both protocol spellings`.`Witness marker conformances admit stored operations and require no members` {
     @Test
     func `namespace exists and can be used for type containment`() {
         func acceptWitnessProtocol<T: Witness.`Protocol`>(_ type: T.Type) {}
@@ -30,7 +30,7 @@ extension Witness.Test.Unit {
     }
 }
 
-extension Witness.Test.`Edge Case` {
+extension Witness.`Witness markers accept conformances through both protocol spellings`.`The macro facing Witness alias accepts marker conformances` {
     @Test
     func `__WitnessProtocol typealias exists for macro use`() {
         func accept<T: __WitnessProtocol>(_ type: T.Type) {}
