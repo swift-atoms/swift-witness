@@ -1,5 +1,3 @@
-# .github/metadata.yaml
-# Triaged 2026-04-29 — refined for the swift 0.1.0 release-cohort path.
 description: "Witness primitives for capability protocols in Swift, supporting Carrier, Mutator, and similar capability types."
 topics:
   - primitives
