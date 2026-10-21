@@ -1,2 +1,2 @@
-@_exported public import Witness
 import Foundation
+@_exported public import Witness
