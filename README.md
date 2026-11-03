@@ -1,0 +1,3 @@
+# swift-witness
+
+Use this package when a type only needs to be marked as a witness (a struct of stored operations standing in for a protocol conformance) or a package needs the `Witness` namespace to hang witness types on, without pulling in macros or a resolution context. Start from `Witness.Protocol`, a marker with no requirements. `__WitnessProtocol` is the same protocol under a name a macro can spell in the conformances it adds; hand-written code uses `Witness.Protocol`. To generate witnesses, call them, and override them per live, preview or test mode, use the sibling swift-witnesses and its Witness macro instead, which builds on this package.
