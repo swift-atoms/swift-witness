@@ -2,7 +2,9 @@ import Testing
 
 @testable import Witness
 
-extension Witness {
+enum `Witness Tests` {}
+
+extension `Witness Tests` {
     @Suite
     struct `Witness markers accept conformances through both protocol spellings` {
         @Suite struct `Witness marker conformances admit stored operations and require no members` {}
@@ -10,7 +12,7 @@ extension Witness {
     }
 }
 
-extension Witness.`Witness markers accept conformances through both protocol spellings`.`Witness marker conformances admit stored operations and require no members` {
+extension `Witness Tests`.`Witness markers accept conformances through both protocol spellings`.`Witness marker conformances admit stored operations and require no members` {
     @Test
     func `namespace exists and can be used for type containment`() {
         func acceptWitnessProtocol<T: Witness.`Protocol`>(_ type: T.Type) {}
@@ -30,7 +32,7 @@ extension Witness.`Witness markers accept conformances through both protocol spe
     }
 }
 
-extension Witness.`Witness markers accept conformances through both protocol spellings`.`The macro facing Witness alias accepts marker conformances` {
+extension `Witness Tests`.`Witness markers accept conformances through both protocol spellings`.`The macro facing Witness alias accepts marker conformances` {
     @Test
     func `__WitnessProtocol typealias exists for macro use`() {
         func accept<T: __WitnessProtocol>(_ type: T.Type) {}
