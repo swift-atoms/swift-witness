@@ -7,9 +7,13 @@ enum `Witness Tests` {}
 extension `Witness Tests` {
     @Suite
     struct `Witness markers accept conformances through both protocol spellings` {
-        @Suite struct `Witness marker conformances admit stored operations and require no members` {}
-        @Suite struct `The macro facing Witness alias accepts marker conformances` {}
     }
+}
+
+extension `Witness Tests`.`Witness markers accept conformances through both protocol spellings` {
+    @Suite struct `Witness marker conformances admit stored operations and require no members` {}
+
+    @Suite struct `The macro facing Witness alias accepts marker conformances` {}
 }
 
 extension `Witness Tests`.`Witness markers accept conformances through both protocol spellings`.`Witness marker conformances admit stored operations and require no members` {
